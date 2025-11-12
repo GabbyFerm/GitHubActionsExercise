@@ -1,0 +1,15 @@
+name: Branch Deploy
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Use job-level if condition
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+    steps:
+      - name: Print environment
+        run: echo "deploy to ${{ github.environment }}"
