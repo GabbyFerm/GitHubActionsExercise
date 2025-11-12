@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment || 'dev' }}
+    environment: dev
     steps:
-      - name: Print environment
-        run: echo "deploy to ${{ github.environment }}"
+      - name: Show secret
+        run: echo "API key is ${{ secrets.MY_API_KEY }}"
